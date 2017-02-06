@@ -57,3 +57,25 @@ Route::post('/edit', [
 	'as' => 'post.edit',
 	'middleware' => 'auth'
 ]);
+
+Route::get('/account', [
+	'uses' => 'UserController@getAccount',
+	'as' => 'account',
+	'middleware' => 'auth'
+]);
+
+Route::post('/updateaccount', [
+	'uses' => 'UserController@postSaveAccount',
+	'as' => 'account.save'
+]);
+
+Route::get('/userimage/{filename}', [
+	'uses' => 'UserController@getUserImage',
+	'as' => 'account.image'
+]);
+
+Route::post('/like', [
+	'uses' => 'PostController@postLikePost',
+	'as' => 'post.like',
+	'middleware' => 'auth'
+]);
